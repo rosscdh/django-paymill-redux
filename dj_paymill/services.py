@@ -20,9 +20,6 @@ class PaymillWebhookService(object):
         # Allow overrides
         self.key = kwargs.get('key', PRIVATE_API_KEY)
         # self.client = Client(self.key, self.secret)
-        logger.info('Initialized sssapi.Client with key: %s' % self.key)
-        self.stamp_data = None
-        self.stamp_serial = None
 
     def process(self, data):
         """
@@ -32,12 +29,12 @@ class PaymillWebhookService(object):
 
         if data is not None:
 
-            logger.info('Provided with stamp data: %s' % data)
+            logger.info('Provided data: %s' % data)
             # pop the stamp_serial from the data so its not repeated
             # self.stamp_serial = data.pop('serial', None)
             # logger.info('Provided with stamp serial: %s' % self.stamp_serial)
 
             # issue the signal
-            paymill_event.send(sender=self, **data)
+            paymill_event.send(sender=self, event_name=event_name, **data)
 
         return data

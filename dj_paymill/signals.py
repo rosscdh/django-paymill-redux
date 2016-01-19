@@ -7,4 +7,4 @@ from django.dispatch import Signal
 #
 # Outgoing Events
 #
-paymill_event = Signal(providing_args=['stamp_serial'])
+paymill_event = Signal(providing_args=['event_name'])
