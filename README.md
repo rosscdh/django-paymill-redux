@@ -1,7 +1,9 @@
-django-paymill
+django-paymill-redux
 ====================
 
-A Django app for integrating with paymill
+A Django app for integrating with paymill.
+
+An updated integration that is not the same as: https://github.com/ulfur/django-paymill
 
 
 Installation
